@@ -1,99 +1,182 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Forms styles and stuff</title>
-    <link rel="stylesheet" type="text/css" href="dist/css/main.css" />
+	<head>
+		<title>Forms styles and stuff</title>
+		<link rel="stylesheet" type="text/css" href="dist/css/main.css" />
+	</head>
+	<body>
+		<div class="wrapper">
+			<section>
+			<header><h1>Some useful elements</h1></header>
+			<artcile class="element element1">
+			<header>Show information on hover or focus when there is no text filled in</header>
+			<section class="example">
+				<div class="input-field">
+					<label>Input type text</label>
+					<div class="info-wrapper">
+						<input type="text" class="withinfo" placeholder="Placeholder random text"/>
+						<span class="info">Information to show</span>
+					</div>
+				</section>
+				<section class="code">
+					<code>
+					.info-wrapper{</br>
+					display: inline-block;</br>
+					position: relative;
+					}
+					</br></br>
+					
+					.info{</br>
+					display:none;</br>
+					position:absolute;</br>
+					font-size:10px;</br>
+					right:10px;</br>
+					bottom:0;</br>
+					color:red;
+					}
+					</br></br>
+					.withinfo{</br>
+					&:focus, &:hover{</br>
+					&:placeholder-shown + .info{</br>
+					display:block;</br>
+					}
+					}
+					}
+					</code>
+				</section>
+			</artcile>
 
-
-  </head>
-  <body>
-  	<div class="wrapper">
-  		<section>
-  		<header><h1>Some useful elements</h1></header>
-
-  		<artcile class="element1">
-  			<header>Show information on focus when there is no text filled in</header>
-  			<section class="example">
-  				<div class="input-field">
-						<label>Input type text</label>
-
-						<input type="text" class="withinfo" placeholder="some random text"/>
-						<span cl
-  			</section>
-  			<section class="code">
-				<code>
-				</code>
-  			</section>
-  		</artcile>
-  	</section>
-  	<h1>Compositions</h1>
+				<artcile class="element element2">
+			<header>Simple mixins to reset and define input parameters</header>
+			<section class="example">
+				<div class="input-field">
+					<label>Input type text</label>
+					
+						<input type="text" class="withinfo" placeholder="Placeholder random text"/>
+						
+				</section>
+				<section class="code">
+					<code>
+							@mixin inputs-sizes($padding, $font-size,  $font-color){</br>
+								//Reset</br>
+								margin:0;</br>
+								border:0;</br>
+								padding:0;</br>
+								box-shadow:none;</br>
+								display:inline-block;</br>
+								vertical-align:middle;</br>
+								white-space:normal;</br>
+								background:none;</br>
+								line-height:1;</br>
+								-webkit-box-sizing:border-box;</br>
+								-moz-box-sizing:border-box;</br>
+								box-sizing:border-box;</br>
+								padding: $padding;</br>
+								font-size: $font-size;</br>
+								color: $font-color;</br>
+							}
+					</code>
+				</section>
+			</artcile>
+			<artcile class="element element3">
+			<header>Simple mixin to define placeholder parameters</header>
+			<section class="example">
+				<div class="input-field">
+					<label>Input type text</label>
+				
+						<input type="text" class="withinfo" placeholder="Placeholder random text"/>
+						
+				</section>
+				<section class="code">
+					<code>
+						@mixin inputs-placeholders($placeholder-size, $placeholder-color, $font-size){</br>
+		&::-webkit-input-placeholder { /* Chrome/Opera/Safari */</br>
+ 		 color: $placeholder-color;			</br>
+ 		 font-size: $placeholder-size;</br>
+ 		 line-height:$font-size;</br>
+		}</br>
+		&::-moz-placeholder { /* Firefox 19+ */</br>
+		color: $placeholder-color;	</br>
+		  font-size: $placeholder-size;</br>
+		  line-height:$font-size;</br>
+		}</br>
+		&:-ms-input-placeholder { /* IE 10+ */</br>
+		  color: $placeholder-color;	</br>
+		  font-size: $placeholder-size;</br>
+		  line-height:$font-size;</br>
+		}</br>
+		&:-moz-placeholder { /* Firefox 18- */</br>
+		  color: $placeholder-color;	</br>
+		  font-size: $placeholder-size;</br>
+		  line-height:$font-size;</br>
+		}
+}
+					</code>
+				</section>
+			</artcile>
+		</section>
+		<h1>Compositions</h1>
 		<section class="stylebox style_version1">
-			<header><h1>Style1</h1></header>
-			<article>
-				<form>
-					<div class="input-field">
-						<label>Input type text</label>
-
-						<input type="text" class="withinfo" placeholder="some random text"/>
-						<span class="info">dffddf</span>
+		<header><h1>Style1</h1></header>
+		<article>
+			<form>
+				<div class="input-field">
+					<label>Input type text</label>
+					<input type="text" class="withinfo" placeholder="some random text"/>
+					<span class="info">dffddf</span>
+				</div>
+				<div class="input-field">
+					<label>Input type email</label>
+					<input type="email"/>
+				</div>
+				<div class="input-field">
+					<label>Input type phone</label>
+					<input type="phone"/>
+				</div>
+				<div class="input-field">
+					<input type="checkbox" id="checkbox"/><label for="checkbox">Input type checkbox</label>
+				</div>
+				<div class="input-field">
+					<div class="radio-field">
+						<input type="radio" name="radios" id="radio1"/><label for="radio1">Input type checkbox</label>
 					</div>
-					<div class="input-field">
-						<label>Input type email</label>
-						<input type="email"/>
+					<div class="radio-field">
+						<input type="radio" name="radios" id="radio2"/><label for="radio2">Input type checkbox</label>
 					</div>
-					<div class="input-field">
-						<label>Input type phone</label>
-						<input type="phone"/>
-					</div>
-					<div class="input-field">
-						<input type="checkbox" id="checkbox"/><label for="checkbox">Input type checkbox</label>
-					</div>
-					<div class="input-field">
-						<div class="radio-field">
-							<input type="radio" name="radios" id="radio1"/><label for="radio1">Input type checkbox</label>
-						</div>
-						<div class="radio-field">
-							<input type="radio" name="radios" id="radio2"/><label for="radio2">Input type checkbox</label>
-						</div>
-					</div>
-				</form>
-
-
-			</article>
-		</section>
-		<section class="stylebox style_version2">
-			<header><h1>Style2</h1></header>
-			<article>
-				<form>
-					<div class="input-field">
-						<label>Input type text</label>
-						<input type="text"/>
-					</div>
-					<div class="input-field">
-						<label>Input type email</label>
-						<input type="email"/>
-					</div>
-					<div class="input-field">
-						<label>Input type phone</label>
-						<input type="phone"/>
-					</div>
-					<div class="input-field">
-						<input type="checkbox" id="checkbox"/><label for="checkbox">Input type checkbox</label>
-					</div>
-					<div class="input-field">
-						<div class="radio-field">
-							<input type="radio" name="radios" id="radio1"/><label for="radio1">Input type checkbox</label>
-						</div>
-						<div class="radio-field">
-							<input type="radio" name="radios" id="radio2"/><label for="radio2">Input type checkbox</label>
-						</div>
-					</div>
-				</form>
-
-
-			</article>
-		</section>
-	</div>
-  </body>
-
-  </html>
+				</div>
+			</form>
+		</article>
+	</section>
+	<section class="stylebox style_version2">
+	<header><h1>Style2</h1></header>
+	<article>
+		<form>
+			<div class="input-field">
+				<label>Input type text</label>
+				<input type="text"/>
+			</div>
+			<div class="input-field">
+				<label>Input type email</label>
+				<input type="email"/>
+			</div>
+			<div class="input-field">
+				<label>Input type phone</label>
+				<input type="phone"/>
+			</div>
+			<div class="input-field">
+				<input type="checkbox" id="checkbox"/><label for="checkbox">Input type checkbox</label>
+			</div>
+			<div class="input-field">
+				<div class="radio-field">
+					<input type="radio" name="radios" id="radio1"/><label for="radio1">Input type checkbox</label>
+				</div>
+				<div class="radio-field">
+					<input type="radio" name="radios" id="radio2"/><label for="radio2">Input type checkbox</label>
+				</div>
+			</div>
+		</form>
+	</article>
+</section>
+</div>
+</body>
+</html>

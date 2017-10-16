@@ -20,10 +20,6 @@ input{
 	
 }	
 
-
-
-}
-
 .withinfo{
 	&:focus{
 		&:placeholder-shown + .info{
@@ -31,3 +27,6 @@ input{
 		}
 	}
 }
+
+}
+
