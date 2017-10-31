@@ -12,11 +12,17 @@ html, body{
 	margin: 0 auto;
 	display:block;
 	padding:2rem;
+	overflow:hidden;
 }
 .stylebox{
 	width:50%;
 	float:left;
+	padding-right:5%;
 }
+.stylebox:first-of-type{
+	
+}
+
 .element{
 	width:100%;
 	overflow:hidden;
@@ -100,4 +106,9 @@ position:relative;
 		@include  inputs-placeholders(10px, #000, 20px);
 		@include inputs-borders(2px, #000, 2px, #000, 2px, #000);
 	}
+}
+
+.composition_row{
+	margin-bottom:150px;
+	overflow:hidden;
 }
